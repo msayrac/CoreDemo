@@ -7,8 +7,7 @@ namespace DataAccessLayer.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=.;database=CoreBlogDb; integrated security=true;Trusted_Connection=true;");
-
+            optionsBuilder.UseSqlServer("server=.;database=CoreBlogDb; integrated security=true;TrustServerCertificate=True;");
         }
 
         public DbSet<About> Abouts { get; set; }
@@ -17,6 +16,7 @@ namespace DataAccessLayer.Concrete
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Writer> Writers { get; set; }
-        
+
+
     }
 }
