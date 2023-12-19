@@ -32,7 +32,6 @@ namespace CoreDemo.Controllers
 			return RedirectToAction("Index","Blog");
 		}
 
-
 		public PartialViewResult CommentListByBlog(int id)
 		{
 			var values = cm.GetList(id);
