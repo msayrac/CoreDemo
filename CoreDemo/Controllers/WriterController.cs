@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CoreDemo.Controllers
 {
-	[AllowAnonymous]
 	public class WriterController : Controller
 	{
 		
