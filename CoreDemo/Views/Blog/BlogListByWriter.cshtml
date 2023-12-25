@@ -18,7 +18,6 @@
 		<th>Durum</th>
 		<th>Sil</th>
 		<th>Düzenle</th>
-
 	</tr>
 
 	@foreach (var item in Model)
@@ -39,8 +38,8 @@
 					<span class="badge badge-secondary">Pasif</span>
 				}
 			</td>
-			<td><a href="/Blog/DeleteBlog/@item.BlogID" class="btn btn-danger">Sil</a></td>
-			<td><a href="#" class="btn btn-warning">Düzenle</a></td>
+			<td><a href="/Blog/DeleteBlog/@item.BlogID" onclick="return confirm('Silmek istediğinizden eminmisiniz?');" class="btn btn-danger">Sil</a></td>
+			<td><a href="/Blog/EditBlog/@item.BlogID" class="btn btn-warning">Düzenle</a></td>
 		</tr>
 	}
 
