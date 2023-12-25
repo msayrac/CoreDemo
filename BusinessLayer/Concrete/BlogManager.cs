@@ -29,7 +29,7 @@ namespace BusinessLayer.Concrete
 
 		public Blog TGetById(int id)
 		{
-			return _blogDal.GetById(id);			
+			return _blogDal.GetById(id);
 		}
 		public List<Blog> GetBlogByID(int id)
 		{
@@ -68,7 +68,7 @@ namespace BusinessLayer.Concrete
 
 		public void TUpdate(Blog t)
 		{
-			throw new NotImplementedException();
+			_blogDal.Update(t);
 		}
 
 		public List<Blog> GetBlogListWithCategory(int id)
