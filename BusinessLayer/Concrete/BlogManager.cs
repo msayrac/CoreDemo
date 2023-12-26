@@ -52,13 +52,9 @@ namespace BusinessLayer.Concrete
 			_blogDal.Insert(t);
 		}
 
-
-
-
-
 		public List<Blog> GetBlogByWriter(int id)
 		{
-			throw new NotImplementedException();
+			return _blogDal.GetListAll(x=>x.WriterID==id);
 		}
 
 		public void TDelete(Blog t)
