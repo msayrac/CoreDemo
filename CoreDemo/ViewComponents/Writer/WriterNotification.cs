@@ -10,6 +10,7 @@ namespace CoreDemo.ViewComponents.Writer
 
 		public IViewComponentResult Invoke()
 		{
+			
 			var values = nm.GetList();
 			return View(values);
 		}
