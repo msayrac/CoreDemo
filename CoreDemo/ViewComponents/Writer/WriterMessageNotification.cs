@@ -7,10 +7,17 @@ namespace CoreDemo.ViewComponents.Writer
 {
 	public class WriterMessageNotification : ViewComponent
 	{
+		MessageManager mm = new MessageManager(new EfMessageRepository());
+
+
 		public IViewComponentResult Invoke()
 		{
+			string p;
+			p = "deneme@gmail.com";
 
-			return View();
+			var values = mm.GetInboxListByWriter(p);
+
+			return View(values);
 		}
 
 
