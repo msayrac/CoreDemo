@@ -10,7 +10,6 @@ namespace CoreDemo.Controllers
 	{
 		BlogManager cm = new BlogManager(new EfBlogRepository());
 
-		[AllowAnonymous]
 		public IActionResult Index()
 		{
 			Context c = new Context();
@@ -18,13 +17,8 @@ namespace CoreDemo.Controllers
 			ViewBag.v2 =c.Blogs.Where(x=>x.WriterID==1).Count();
 			ViewBag.v3 = c.Categories.Count();
 
-
 			return View();
 		}
-
-
-
-
 
 	}
 }
