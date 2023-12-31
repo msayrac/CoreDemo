@@ -89,7 +89,6 @@ namespace CoreDemo.Controllers
 		{
 			var blogValue = bm.TGetById(id);
 			bm.TDelete(blogValue);
-
 			return RedirectToAction("BlogListByWriter");
 		}
 
