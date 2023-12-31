@@ -23,7 +23,7 @@ builder.Services.AddMvc(config =>
 
 builder.Services.AddMvc();
 builder.Services.AddAuthentication(
-	
+
 	CookieAuthenticationDefaults.AuthenticationScheme)
 	.AddCookie(x =>
 	{
@@ -48,8 +48,6 @@ app.UseStatusCodePagesWithReExecute("/ErrorPage/Error1", "?code={0}");
 
 app.UseSession();
 
-
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -61,5 +59,17 @@ app.UseAuthorization();
 app.MapControllerRoute(
 	name: "default",
 	pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
+	name: "areas",
+	  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+//app.UseEndpoints(endpoints =>
+//{
+//	endpoints.MapControllerRoute(
+//	  name: "areas",
+//	  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+//	);
+//});
 
 app.Run();
