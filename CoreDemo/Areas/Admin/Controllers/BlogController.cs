@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CoreDemo.Areas.Admin.Controllers
 {
+
+	[Area("Admin")]
 	public class BlogController : Controller
 	{
 		public IActionResult ExportStaticExcelBlogList()
@@ -26,7 +28,7 @@ namespace CoreDemo.Areas.Admin.Controllers
 				{
 					workbook.SaveAs(stream);
 					var content = stream.ToArray();
-					return File(content, "application / vnd.openxmlformats - officedocument.spreadsheetml.sheet", "Calisma1.xlsx");
+					return File(content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Calisma1.xlsx");
 				}
 			}
 		}
