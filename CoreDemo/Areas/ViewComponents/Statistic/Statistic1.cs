@@ -16,14 +16,10 @@ namespace CoreDemo.Areas.ViewComponents.Statistic
 			ViewBag.v2 = c.Contacts.Count();
 			ViewBag.v3 = c.Comments.Count();
 
-
-			//string api = "bcdea91781784830ce3b77ec6107d4de";
-			//string connection = "https://api.openweathermap.org/data/2.5/weather?q=istanbul&mode=xml&lang=tr&units=metric&appid=" + api;
-
-			//XDocument document = XDocument.Load(connection);
-
-			//ViewBag.v4 = document.Descendants("temperature").ElementAt(0).Attribute("value").Value;
-
+			string api = "bcdea91781784830ce3b77ec6107d4de";
+			string connection = "https://api.openweathermap.org/data/2.5/weather?q=istanbul&mode=xml&lang=tr&units=metric&appid=" + api;
+			XDocument document = XDocument.Load(connection);
+			ViewBag.v4 = document.Descendants("temperature").ElementAt(0).Attribute("value").Value;
 
 			return View();
 		}
