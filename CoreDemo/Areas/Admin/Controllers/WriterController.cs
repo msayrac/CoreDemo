@@ -1,6 +1,7 @@
 ﻿using CoreDemo.Areas.Admin.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Security.Cryptography.Pkcs;
 
 namespace CoreDemo.Areas.Admin.Controllers
 {
@@ -25,11 +26,15 @@ namespace CoreDemo.Areas.Admin.Controllers
             var findWriter = writers.FirstOrDefault(x => x.Id == writerid);
             var jsonWriters =JsonConvert.SerializeObject(findWriter);
             return Json(jsonWriters);
-
-
 		}
 
-
+        [HttpPost]
+        public IActionResult AddWriter(WriterClass w)
+        {
+            writers.Add(w);
+            var jsonWriters = JsonConvert.SerializeObject(w);
+            return Json(jsonWriters);
+        }
 
 
         public static List<WriterClass> writers = new List<WriterClass>
