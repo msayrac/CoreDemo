@@ -9,7 +9,5 @@ namespace BlogApiDemo.DataAccessLayer
         public string Name { get; set; }
 
 
-
-
     }
 }
