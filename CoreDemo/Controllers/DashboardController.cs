@@ -6,9 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CoreDemo.Controllers
 {
+	[AllowAnonymous]
 	public class DashboardController : Controller
 	{
-		BlogManager cm = new BlogManager(new EfBlogRepository());
+		BlogManager bm = new BlogManager(new EfBlogRepository());
 
 		public IActionResult Index()
 		{

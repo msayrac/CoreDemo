@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CoreDemo.Controllers
 {
+	[AllowAnonymous]
+
 	public class BlogController : Controller
 	{
 		BlogManager bm = new BlogManager(new EfBlogRepository());

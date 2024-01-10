@@ -2,6 +2,7 @@
 
 namespace CoreDemo.Areas.Admin.Controllers
 {
+
 	public class HomeController : Controller
 	{
 		public IActionResult Index()

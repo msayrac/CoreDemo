@@ -1,12 +1,8 @@
 ﻿using CoreDemo.Models;
-using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using NuGet.Protocol.Core.Types;
-using System.Security.Claims;
 
 namespace CoreDemo.Controllers
 {
@@ -20,18 +16,21 @@ namespace CoreDemo.Controllers
 			_signInManager = signInManager;
 		}
 
+		[AllowAnonymous]
+
 		public IActionResult Index()
 		{
 			return View();
 		}
 
+		[AllowAnonymous]
 
 		[HttpPost]
 		public async Task<IActionResult> Index(UserSignInViewModel p)
 		{
 			if (ModelState.IsValid)
 			{
-				var result = await _signInManager.PasswordSignInAsync(p.username, p.password, false,true);
+				var result = await _signInManager.PasswordSignInAsync(p.username, p.password, false, true);
 
 				if (result.Succeeded)
 				{
@@ -44,14 +43,6 @@ namespace CoreDemo.Controllers
 			}
 			return View();
 		}
-
-
-
-
-
-
-
-
 
 		//[HttpPost]
 		//public async Task<IActionResult> Index(Writer p)
@@ -83,10 +74,6 @@ namespace CoreDemo.Controllers
 
 
 		//}
-
-
-
-
 
 	}
 }

@@ -5,7 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CoreDemo.Controllers
 {
-    public class NotificationController : Controller
+	[AllowAnonymous]
+
+	public class NotificationController : Controller
     {
         NotificationManager nm = new NotificationManager(new EfNotificationRepository());
         public IActionResult Index()
