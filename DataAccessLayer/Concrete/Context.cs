@@ -10,10 +10,7 @@ namespace DataAccessLayer.Concrete
 		{
 			optionsBuilder.UseSqlServer("server=.;database=CoreBlogDb; integrated security=true;TrustServerCertificate=True;");
 
-
 		}
-
-
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			modelBuilder.Entity<Match>()
@@ -43,15 +40,10 @@ namespace DataAccessLayer.Concrete
 
 			base.OnModelCreating(modelBuilder);
 
-
 			// HomeMatches ---> WriterSender
 			// AwayMatches ---> WriterReceiver
 			// HomeTeam  ---> SenderUser
 			// GuestTeam ---> ReceiverUser
-
-
-
-
 		}
 
 		public DbSet<About> Abouts { get; set; }

@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace CoreDemo.Controllers
 {
 	[AllowAnonymous]
-
 	public class WriterController : Controller
 	{
 		WriterManager wm = new WriterManager(new EfWriterRepository());
@@ -19,10 +18,10 @@ namespace CoreDemo.Controllers
 		[Authorize]
 		public IActionResult Index()
 		{
-			var usermail = User.Identity.Name;
-			ViewBag.v = usermail;
-
 			Context c = new Context();
+
+			var usermail = User.Identity.Name;
+			ViewBag.v = usermail;			
 			var writerName = c.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterName).FirstOrDefault();
 
 			ViewBag.v2 = writerName;
@@ -62,10 +61,13 @@ namespace CoreDemo.Controllers
 		public IActionResult WriterEditProfile()
 		{
 			Context c = new Context();
-			var usermail = User.Identity.Name;
-			var writerID = c.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterID).FirstOrDefault();
 
+			var username = User.Identity.Name;
+
+			var usermail = c.Users.Where(x=>x.UserName==username).Select(y=>y.Email).FirstOrDefault();
+			var writerID = c.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterID).FirstOrDefault();
 			var writervalues = wm.TGetById(writerID);
+
 			return View(writervalues);
 		}
 

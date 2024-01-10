@@ -7,10 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace CoreDemo.Controllers
 {
 	[AllowAnonymous]
-
 	public class ContactController : Controller
 	{
-
 		ContactManager cm = new ContactManager(new EfContactrepository());
 		[HttpGet]
 		public IActionResult Index()
@@ -23,9 +21,9 @@ namespace CoreDemo.Controllers
 		{
 			p.ContactDate = DateTime.Parse(DateTime.Now.ToString());
 			p.ContactStatus = true;
-			cm.ContactAdd(p);			
+			cm.ContactAdd(p);
 
-			return RedirectToAction("Index","Blog");
+			return RedirectToAction("Index", "Blog");
 		}
 	}
 }
