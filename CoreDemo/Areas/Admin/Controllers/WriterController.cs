@@ -1,4 +1,5 @@
 ﻿using CoreDemo.Areas.Admin.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Security.Cryptography.Pkcs;
@@ -6,6 +7,7 @@ using System.Security.Cryptography.Pkcs;
 namespace CoreDemo.Areas.Admin.Controllers
 {
 	[Area("Admin")]
+	[AllowAnonymous]
 	public class WriterController : Controller
 	{
 		public IActionResult Index()
